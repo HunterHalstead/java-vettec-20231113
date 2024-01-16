@@ -1,6 +1,8 @@
 package com.skillstorm;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
@@ -27,13 +29,29 @@ public class DateTimeFormatExamples {
 			// z = timezone ex: GMT
 	
 	public static void main(String[] args) {
-		// To format a date, hand in a formatter to the .format method
-		LocalTime now = LocalTime.now();
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("hh:mm:ss a");
-		DateTimeFormatter dtf2 = DateTimeFormatter.ofLocalizedTime(FormatStyle.FULL);
+		// To format a time, hand in a formatter to the .format method
+		LocalTime now = LocalTime.of(23, 30, 00);
+		
+		// 3 ways to create a DateTimeFormatter
+		DateTimeFormatter dtf = DateTimeFormatter.ISO_LOCAL_TIME;
+		DateTimeFormatter dtf1 = DateTimeFormatter.ofPattern("HH:mm");
+		DateTimeFormatter dtf2 = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
 		
 		System.out.println(now.format(dtf));
+		System.out.println(now.format(dtf1));
 		System.out.println(now.format(dtf2));
+		
+		// To format a date using a custom pattern
+		LocalDate endDate = LocalDate.of(2024, 3, 15);
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E, MMM d");
+		System.out.println(endDate.format(formatter));
+		System.out.println(formatter.format(endDate));
+		
+		// To format a zonedDateTime
+		ZonedDateTime tomorrow = ZonedDateTime.now().plusDays(1);
+		System.out.println(tomorrow.format(DateTimeFormatter.ofPattern("E MMM d' at 'h:mm a z")));
+		
 	}
 
 }
