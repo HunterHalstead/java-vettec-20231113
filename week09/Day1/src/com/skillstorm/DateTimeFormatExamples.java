@@ -1,7 +1,9 @@
 package com.skillstorm;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.YearMonth;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
@@ -52,6 +54,17 @@ public class DateTimeFormatExamples {
 		ZonedDateTime tomorrow = ZonedDateTime.now().plusDays(1);
 		System.out.println(tomorrow.format(DateTimeFormatter.ofPattern("E MMM d' at 'h:mm a z")));
 		
+		
+		// Parse in any format
+		String input = "27-06";
+		DateTimeFormatter dtf2digitYr = DateTimeFormatter.ofPattern("yy-MM");
+		DateTimeFormatter dtf4digitYr = DateTimeFormatter.ofPattern("yyyy-MM");
+		YearMonth custom = null;
+		if (input.length() == 5)
+			custom = YearMonth.parse(input, dtf2digitYr);
+		else if (input.length() == 7)
+			custom = YearMonth.parse(input, dtf4digitYr);
+		System.out.println("Input date is " + custom);
 	}
 
 }
