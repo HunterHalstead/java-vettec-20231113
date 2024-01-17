@@ -35,12 +35,31 @@ public class ContinueDirection implements Direction {
 		////////////////////////////////////////////////////////////////////
 		// TODO 3 Reverse this continue direction
 		// Hint: Use this.turn, this.from, this.onto to create the reverse
-		
-		
-		return null;
+		return new ContinueDirection(numBlocks, (Cardinal) heading.reverse(), road);
+
 		////////////////////////////////////////////////////////////////////
 	}
 
+	public String toString() {
+		return String.format("Head %d blocks on %s going %s", numBlocks, road, heading);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(heading, numBlocks, road);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContinueDirection other = (ContinueDirection) obj;
+		return heading == other.heading && numBlocks == other.numBlocks && Objects.equals(road, other.road);
+	}
 
 	
 

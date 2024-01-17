@@ -1,7 +1,11 @@
 package com.skillstorm;
-
+import static com.skillstorm.Season.*; // Static import of Enums is a good place to use wildcard
 public class EnumExamples {
 	public static void main(String[] args) {
+		System.out.println(SUMMER);
+		System.out.println(WINTER);
+		System.out.println(FALL);
+		System.out.println(SPRING);
 		
 		Answer.NO.hesitate();
 		Answer.YES.hesitate();
