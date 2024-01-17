@@ -14,12 +14,7 @@ public enum Cardinal implements Direction {
 	//  that represents the cardinal directions on a compass
 
 
-	// TODO 1b Return the opposite direction
-	// Hint: Use the this keyword to see what the current direction is
-	@Override
-	public Cardinal reverse() {
-		return null;
-	}
+	// TODO 1b Implement .reverse()
 	
 
 }
