@@ -37,6 +37,4 @@ public enum Cardinal implements Direction {
 			return EAST;
 		}
 	}
-	
-
 }
