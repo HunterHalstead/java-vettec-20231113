@@ -9,12 +9,19 @@ public class EnumExamples {
 		Answer ans = Answer.NO;
 		
 		switch (ans) { // enum type implied by switch value
-		case /* Answer.NO */ NO:
-			System.out.println("Pretty please?");
-		case YES:
-			System.out.println("Thanks!");
+// Invalid cases:
+//      case Answer.NO:
 //		case 1:
 //		case "NO":
+// Valid cases:
+			case NO:
+				System.out.println("Pretty please?");
+				break;
+			case YES:
+				System.out.println("Thanks!");
+				break;
+			default:
+				System.out.println("huh?");
 			
 		}
 
