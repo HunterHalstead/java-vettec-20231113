@@ -37,5 +37,9 @@ public class GroupGenerator {
     public Set<List<String>> randomizeGroups(List<String> names, int numPeoplePerGroup) {
         // Your code here
     }
+
+    public Set<List<String>> randomizeNGroups(int nGroups, List<String> names) {
+        // Your code here
+    }
 }
 ```
