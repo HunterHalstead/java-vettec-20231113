@@ -10,10 +10,6 @@ public enum Hand {
 	// TODO 2a Create an enum 
 	//  that represents the constants right and left
 	
-	// TODO 2b Return the opposite
-	// Hint: Use the this keyword to see what the current value is
-	public Hand reverse() {
-
-	}
+	// TODO 2b Implement .reverse()
 
 }
