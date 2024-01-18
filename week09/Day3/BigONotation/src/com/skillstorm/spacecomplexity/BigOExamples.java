@@ -19,11 +19,11 @@ public class BigOExamples {
 	
 	// Get the nth value in a list
 	public int getNth(int[] nums, int n) {
-		return nums[0]; // O(1) constant
+		return nums[n]; // O(1) constant
 	}
 	
 	public int getNth(LinkedList<Integer> nums, int n) {
-		return nums.get(0); // O(1) constant
+		return nums.get(n); // O(n) linear
 	}
 	
 	// Use a loop to get the max value in a list
