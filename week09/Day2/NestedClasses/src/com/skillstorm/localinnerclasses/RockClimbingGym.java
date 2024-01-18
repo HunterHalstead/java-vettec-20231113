@@ -33,11 +33,12 @@ public class RockClimbingGym {
 		class MilitaryDiscount extends Sale {
 
 			@Override
-			public int dollarsOff() {// TODO Auto-generated method stub
+			public int dollarsOff() {// can access outer local variable normalPrice because it is effectively final
 				return (int) (normalPrice * 0.5);
 			}
 
 		}
+		// normalPrice = 200; // if it is reassigned, it is not effectively final anymore
 		if (isVeteran) {
 			return normalPrice - new MilitaryDiscount().dollarsOff();
 		}
