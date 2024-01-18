@@ -11,10 +11,11 @@ public class RockClimbingGym {
 	public double purchaseDayPass(int age) {
 
 		class YouthDiscount extends Sale {
+//			private static int numCouponsAvailable = 100; // can't have static fields
 
 			@Override
 			public int dollarsOff() {// TODO Auto-generated method stub
-				return 0;
+				return 10;
 			}
 
 		}
