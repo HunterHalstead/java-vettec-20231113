@@ -25,9 +25,8 @@ public class Appointment {
 			LocalTime time1 = LocalTime.of(8, 0);
 			ZoneId here = ZoneId.systemDefault();
 			ZonedDateTime start = ZonedDateTime.of(today.atTime(time1), here);
-			possible.add(new Appointment(start, d)); // 8
 			
-			for (int t = 8; t < 18; t++) { // 8am to 5pm
+			for (int t = 9; t < 18; t++) { // 8am to 5pm
 				start = start.plus(d);
 				if (t == 12) {
 					continue;
