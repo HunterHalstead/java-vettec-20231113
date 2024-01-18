@@ -49,6 +49,11 @@ public class TrampolinePark {
 				System.out.println("Number of trampolines is " + numTrampolines);
 			}
 			
+			// can't have static methods in local classes
+//			public static void printInfo() { 
+//				System.out.println("Number of trampolines is " + numTrampolines); 
+//			}
+			
 		}
 		///////////////////////////////////////////////////////////
 		Sale sale = new YouthDiscount();
