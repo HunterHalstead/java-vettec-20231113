@@ -17,7 +17,8 @@ public class SelectionSort {
 
         Random rand = new Random();
 
-        int[] numbers = new int[1000000];
+        int[] numbers = new int[10000];//took 28ms
+        //int[] numbers = new int[1000000]; //took 211020ms
 
         for(int i = 0; i < numbers.length; i++) {
             numbers[i] = rand.nextInt(1000);

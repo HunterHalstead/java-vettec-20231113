@@ -18,7 +18,7 @@ public class BubbleSort {
 
         Random rand = new Random();
 
-        int[] numbers = new int[100000];
+        int[] numbers = new int[10000]; //took 1666ms
 
         //iterates through the array and fills it up with int between 0 and 1000
         for(int i = 0; i < numbers.length; i++) {
@@ -27,6 +27,7 @@ public class BubbleSort {
 
         System.out.println("Before Bubble Sort: ");
         printArray(numbers);
+        long startTime = System.currentTimeMillis();
 
         boolean swappedSomething = true;
 
@@ -48,6 +49,10 @@ public class BubbleSort {
 
         System.out.println("\nAfter Bubble Sort: ");
         printArray(numbers);
+
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("took " + (endTime - startTime) + "ms");
 
     }
 
