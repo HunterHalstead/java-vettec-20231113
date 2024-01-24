@@ -7,8 +7,8 @@ public class DisasterExampleTestSuperhero {
 		// Ask for factory for a superhero
 		try {
 				Superhero hero = SuperHeroFactory.getSuperhero();
-				System.out.println("Don't worry " + superhero.getName() + " is here to save the day!");
-		} (catch SuperherosException e) {
+				System.out.println("Don't worry " + hero.getName() + " is here to save the day!");
+		} (catch SuperheroException e) {
 			System.out.println(e.getMessage());
 		}
 	}
