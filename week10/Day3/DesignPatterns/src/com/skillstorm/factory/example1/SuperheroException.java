@@ -1,4 +1,4 @@
-package com.skillstorm.factory;
+package com.skillstorm.factory.example1;
 
 public class SuperheroException extends Exception {
 

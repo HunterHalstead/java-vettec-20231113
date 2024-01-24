@@ -9,8 +9,6 @@ public class ShapeFactory {
 			default: throw new IllegalArgumentException("Unknown shape with " + corners + " corners");
 			}
 		}
-	
-
 }
 
 abstract class Shape {

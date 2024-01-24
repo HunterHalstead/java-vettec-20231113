@@ -3,8 +3,8 @@ package com.skillstorm.pool;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.skillstorm.factory.Superhero;
-import com.skillstorm.factory.SuperheroException;
+import com.skillstorm.factory.example1.Superhero;
+import com.skillstorm.factory.example1.SuperheroException;
 
 /**
  * This class holds a pool of superheros that can be drawn from.
