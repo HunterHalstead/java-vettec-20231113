@@ -1,5 +1,7 @@
 package com.skillstorm.factory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,15 +10,30 @@ import java.util.List;
 public class SuperheroFactory {
 	
 	// Properties
-	static List<Superhero> heros;
+	private static List<Superhero> heros;
+	static {
+		heros.add(
+				new DCSuperhero("Superman", 
+						new ArrayList<>(
+								Arrays.asList("Super strength", 
+												"flying", 
+												"heat vision"))));
+		heros.add(new MarvelSuperhero("Hulk", new ArrayList<>(
+								Arrays.asList("Super strength"))));
+	}
+	
+	public SuperheroFactory() {	}
 	
 	
 	// Methods
-	public Superhero getSuperhero() throws SuperheroException {
+	public static Superhero getSuperhero() throws SuperheroException {
 		for (Superhero hero : heros) {
-			if (hero.isAvailable())
+			if (hero.isAvailable()) {
+				hero.setAvailable(false);
 				return hero;
+			}
 		}
 		throw new SuperheroException("Sorry, no superheros are availalbe to save the day.");
 	}
+	
 }

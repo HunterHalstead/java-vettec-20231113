@@ -3,7 +3,7 @@ package com.skillstorm.factory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Superhero {
+public abstract class Superhero {
 	private String name;
 	private List<String> superpowers;
 	boolean available = true;
@@ -76,4 +76,20 @@ public class Superhero {
 			return false;
 		return true;
 	}
+}
+
+class DCSuperhero extends Superhero {
+	public static final String universe = "DC";
+	public DCSuperhero(String name, List<String> superpowers) {
+		super(name, superpowers);
+	}
+
+}
+
+class MarvelSuperhero extends Superhero {
+	public static final String universe = "Marvel";
+	public MarvelSuperhero(String name, List<String> superpowers) {
+		super(name, superpowers);
+	}
+
 }
