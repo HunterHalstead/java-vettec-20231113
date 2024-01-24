@@ -16,6 +16,7 @@ public class Appointment {
 	private ZonedDateTime start;
 	private Duration duration;
 	
+	
 	// Create a scheduling Assistant
 	static class SchedulingAssistant {
 		static List<Appointment> possible = new ArrayList<>();
@@ -26,9 +27,9 @@ public class Appointment {
 			ZoneId here = ZoneId.systemDefault();
 			ZonedDateTime start = ZonedDateTime.of(today.atTime(time1), here);
 			
-			for (int t = 9; t < 18; t++) { // 8am to 5pm
+			while (start.isBefore(ZonedDateTime.of(today.atTime(LocalTime.of(18, 0)), here))) { // 8am to 5pm
 				start = start.plus(d);
-				if (t == 12) {
+				if (start.equals(ZonedDateTime.of(today.atTime(LocalTime.of(12, 0)), here))) {
 					continue;
 				}
 				possible.add(new Appointment(start, d)); // add appt every hour
@@ -39,24 +40,25 @@ public class Appointment {
 		// Give me a list of possible meeting times
 		public List<Appointment> availableAppts(List<Appointment> person1s, List<Appointment> person2s) {
 			List<Appointment> available = new ArrayList<>();
-			Collections.copy(available, possible);
+//			Collections.copy(available, possible);
 			outer: 
 			for (Appointment a : possible) { // this loops nx
 				for (Appointment p1: person1s) { // this loops mx
-					if (hasOverlap(a, p1)) {
-						available.remove(a); // this line runs how many times? nxm
+					if (hasOverlap(a, p1)) { // this line runs how many times? nxm
+//						available.remove(a); // the remove method iterates through the available appts arraylist
 						continue outer;
 					}
 				}
 				for (Appointment p2: person2s) { // this runs px
-					if (hasOverlap(a, p2)) {
-						available.remove(a); // this line runs how many times? nxp
+					if (hasOverlap(a, p2)) { // this line runs how many times? nxp
+//						available.remove(a); // this causes another iteration so nxpxq
 						continue outer;
 					}
 				}
+				available.add(a);
 			}
 			return available; 
-		} // n*m + n*p --> n*n + n*n --> 2n^2 --> O(n^2)
+		} // n*m + n*p --> n*n + n*n --> 2n^2 --> O(n^2) if we are using an ArrayList.remove --> O(n^3)
 		
 		public boolean hasOverlap(Appointment a, Appointment b) {
 			// check if they have the same start time
