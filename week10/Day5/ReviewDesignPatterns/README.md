@@ -5,32 +5,43 @@
 1. Which of the following are design pattern categories?
 
    a. Creation
+
    b. Access
+
    c. Structure
+
    d. Behavior
 
-2. Which design patterns are creational design patterns?
+3. Which design patterns are creational design patterns?
 
    a. Strategy
+
    b. Factory
+
    c. Builder
+
    d. Decorator
 
-3. The instance of a Singleton stored should in the class, must be marked final.
+5. The instance of a Singleton stored should in the class, must be marked final.
 
    a. true
+
    b. false
 
-4. An Immutable class's constructor must be marked private
+7. An Immutable class's constructor must be marked private
 
    a. true
+
    b. false
    
-6. What is the solution to the telescoping constructor anti-pattern?
+9. What is the solution to the telescoping constructor anti-pattern?
 
    a. Decorator
+
    b. Builder
+
    c. Composite
+
    d. Immutable
 
 ## Answers
