@@ -16,8 +16,16 @@ public class CopyToFile {
 		public static void main(String[] args) throws FileNotFoundException, IOException {
 			
 			// Use a try-with-resources to make sure our file resources are released
-			
-					// read from one file and write to another file
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter(path + "copy.txt"));
+					BufferedReader br = new BufferedReader(new FileReader(path + "hello.txt"))) {
+				// read from one file and write to another file
+				String str;
+				while ((str = br.readLine()) != null) {
+					bw.write(str);
+					bw.newLine();
+				}
+				System.out.println("done");
+			}
 			
 		}
 
