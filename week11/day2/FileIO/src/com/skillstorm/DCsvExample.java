@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class DCsvExample {
 
 	public static void main(String[] args) {
 		List<User> users = readFromCSV("mock_data.csv"); // file names are not case sensitive
+		Collections.sort(users, Comparator.comparing(User::getLastName));
 		users.forEach(System.out::println);
 	}
 
@@ -44,13 +46,14 @@ public class DCsvExample {
 		// - BufferedReader
 		List<User> users = new ArrayList<>();
 		try (BufferedReader reader = new BufferedReader(new FileReader(new File(path, name)))) {
-			String line = reader.readLine();
-			while (line != null) {
+			String line = reader.readLine(); // skip the first header line
+			while ((line = reader.readLine()) != null) {
 				if (!line.isEmpty()) {
-					line = reader.readLine();
 					System.out.println(line);
-					users.add(parseUserData(line));
 				}
+				User user = parseUserData(line);
+				if (user != null)
+					users.add(user);
 			}
 		} catch (FileNotFoundException e) {
 			// The file was not found
