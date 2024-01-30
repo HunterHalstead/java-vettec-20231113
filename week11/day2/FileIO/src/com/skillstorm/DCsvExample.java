@@ -17,7 +17,7 @@ public class DCsvExample {
 	private static final File path = new File("src/com/skillstorm/resources");
 
 	public static void main(String[] args) {
-		List<User> users = readFromCSV("MOCK_DATA.csv");
+		List<User> users = readFromCSV("mock_data.csv"); // file names are not case sensitive
 		users.forEach(System.out::println);
 	}
 
