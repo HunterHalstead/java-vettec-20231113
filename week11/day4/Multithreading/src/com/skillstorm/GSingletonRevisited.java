@@ -2,15 +2,16 @@ package com.skillstorm;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class GSingletonRevisited {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ExecutorService service = null;
+		Singleton4 singleton = Singleton4.getInstance();
 		try {
 			service = Executors.newFixedThreadPool(3);
-			Singleton4 singleton = Singleton4.getInstance();
 			service.submit(() -> { 
 				for (int i = 0; i < 10; i++) 
 					singleton.increment();
@@ -23,10 +24,11 @@ public class GSingletonRevisited {
 				for (int i = 0; i < 10; i++) 
 					singleton.increment();
 				});
-			System.out.println(singleton.getCounter());
 		} finally {
 			service.shutdown();
 		}
+		service.awaitTermination(5, TimeUnit.SECONDS);
+		System.out.println(singleton.getCounter());
 	}
 }
 
