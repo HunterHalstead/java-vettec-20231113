@@ -33,11 +33,13 @@ public class AExecutorService {
 		try {
 			service = Executors.newSingleThreadExecutor();
 			Future<?> future = service.submit(() -> {
+				/////////////////////////////////////////////// new-thread
 				for (int i = 0; i < 10000; i++)
 					System.out.println(++counter);
 				System.out.println();
+				//////////////////////////////////////////////
 			});
-			future.get(1, TimeUnit.MILLISECONDS);
+			future.get(1, TimeUnit.MILLISECONDS); // main-thread waits for new-thread
 			System.out.println("Done, counter=" + counter);
 		} catch (InterruptedException e) {
 			System.out.println("Something went wrong");
