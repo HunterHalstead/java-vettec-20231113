@@ -63,7 +63,7 @@ class Singleton2 {
 	}
 }
 
-// Singleton with counter methods
+// Singleton with counter methods using synchronized blocks
 class Singleton3 {
 	private int counter;
 	private volatile static Singleton3 instance; // prevents the compiler from allowing access to this object at the same time
