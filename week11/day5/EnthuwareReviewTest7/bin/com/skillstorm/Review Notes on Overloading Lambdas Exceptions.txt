@@ -1,0 +1,50 @@
+Method Overloading (compilation errors)
+- method signature has to be different 
+   *** type of parameter or number
+- Not part of the signature
+   return type is not part of the method signature
+   access modifier
+
+
+Method chosen at runtime:
+1. Looks for exact match
+2. Looks for compatible type by
+   a. widening (implicit casting rules)
+ byte > short or char > int > long > float > double
+   
+   b. autoboxing or unboxing
+
+   c. varargs
+
+Problem 3:
+- If nothing is commented out it will print:
+   
+
+Lambda Notation Rules
+- () optional when only one
+- {} optional when only one line of code
+- return optional when only one line of code
+- ; optional when no curly braces
+  inside a body must be complete statement
+  used as an expression (not a statement) must omit
+
+"A lambda body must be either a single expression or a block. System.out.println("running...") is not an expression because it doesn't return anything. So, it doesn't really satisfy the above requirement. However, it is an exception to the rule. A semicolon is not required when you use a method call returning void as the body of the lamda expression even though the method call is not an expression." 
+
+Predicate:
+<E> boolean test(E e)
+
+Exceptions
+- order of catch clauses (most specific to least)
+  inheritance tree to know
+   Object
+    |
+    Throwable
+    |
+    Exception
+    |         \
+    |         IOException - FileNotFound
+    RuntimeExceptino
+    | 
+    NullPointerexception
+- finally causes everything else to be ignored "squashed" lost 
+- the "most recent" is returned
