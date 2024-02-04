@@ -71,7 +71,7 @@ public class Assignment {
 			}).max(Comparator.comparing(String::length)) // returns Optional
 					.orElse(""); // Get value in Optional or "" if not present
 			long end = System.currentTimeMillis();
-			System.out.println("Parallel execution: " + (Duration.ofMillis(end - start).get(ChronoUnit.NANOS) / 1000000.0) + " milliseconds");
+			System.out.println("Parallel execution: " + (Duration.ofMillis(end - start).get(ChronoUnit.NANOS)) + " milliseconds");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
