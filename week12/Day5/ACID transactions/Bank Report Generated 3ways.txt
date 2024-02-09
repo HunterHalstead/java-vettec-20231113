@@ -1,0 +1,30 @@
+TRANSACTION A - REPEATABLE READ
+TRANSACTION B - REPEATABLE READ
+
+isolated report generation good - good
+1	Joe Shmoe	100
+2	Hannah Banana	200
+Totals  2              300
+
+---------------------------------
+TRANSACTION A - READ UNCOMMITTED (doesn't set locks, but respects locks)
+TRANSACTION B - REPEATABLE READ (acquires locks)
+
+isolated report generation program -- good
+
+1	Joe Shmoe	100
+2	Hannah Banana	200
+3	Slim Jim	1
+4	Black Jack	3000000
+    count 6       6000302
+
+----------------------------------
+TRANSACTION A - READ UNCOMMITTED
+TRANSACTION B - READ UNCOMMITTED
+
+un-isolated report generation program -- bad
+	TRY 3
+	
+1	Joe Shmoe	        100
+2	Hannah Banana	    200
+SUMMARY   4     TOTAL 3000301
