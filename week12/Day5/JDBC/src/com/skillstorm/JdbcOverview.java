@@ -42,8 +42,8 @@ public class JdbcOverview {
 			 * 3. execute(string) returns boolean (true means there is a result set) .getResultSet()
 			 *     - SELECT, SET, INSERT, DELETE
 			 */
-			ResultSet rs = stmt.executeQuery("SELECT * FROM account"); // semicolon optional
-			System.out.println("Done");
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM account"); // semicolon optional
+//			System.out.println("Done");
 			// Step 5: Process the results
 			///////////////////////////////////////////////////////////////////////////////////
 //			while (rs.next()) {
@@ -66,13 +66,14 @@ public class JdbcOverview {
 			///////////////////////////////////////////////////////////////////////////////////////
 			PreparedStatement prstmt= conn.prepareStatement("SELECT * FROM account WHERE customer_name = ?;");
 			prstmt.setString(1, name); // not zero indexed
-			System.out.println("Here is your account info");
+			System.out.println("Here is your account info:");
 			ResultSet result = prstmt.executeQuery();
 			if (result.next()) {
-				String customer = rs.getString("customer_name");
-				int id = rs.getInt("id");
-				double balance = rs.getDouble("balance");
-				System.out.printf("%d %20s $%.2f%n", id, customer, balance);
+				String customer = result.getString("customer_name");
+				int id = result.getInt("id");
+				double balance = result.getDouble("balance");
+				System.out.printf("%-5s %-20s %-10s%n", "Id", "Customer", "Balance");
+				System.out.printf("%-5d %-20s $%-10.2f%n", id, customer, balance);
 			} else {
 				System.out.println("No account found");
 			}

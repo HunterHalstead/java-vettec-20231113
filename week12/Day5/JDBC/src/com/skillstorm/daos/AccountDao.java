@@ -1,45 +1,26 @@
 package com.skillstorm.daos;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.skillstorm.models.Account;
 
-public class AccountDao implements Dao<Account, Integer> {
-
-	@Override
-	public Account findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Account> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Account save(Account e) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Account update(Account e) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Account e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteById(Integer id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+/** 
+ * This is an interface that defines all the interactions with the database
+ */
+public interface AccountDao {
+	
+	Optional<Account> findById(int id);
+	
+	Optional<Account> findByName(String name);
+	
+	List<Account> findAll();
+	
+	Account save(Account e);
+	
+	Account update(Account e);
+	
+	void delete(Account e);
+	
+	void deleteById(int id);
 }

@@ -5,45 +5,37 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.Scanner;
 
 import com.skillstorm.config.DbUtils;
+import com.skillstorm.daos.AccountDao;
+import com.skillstorm.daos.AccountDaoMySQLImpl;
+import com.skillstorm.models.Account;
 
 public class MyApp {
+	
+	AccountDao dao = new AccountDaoMySQLImpl();
 
 	public static void main(String[] args) throws IOException {
-		// Get user data
+		MyApp app = new MyApp();
+		app.start();
+	}
+	
+	public void start() {
 
 		Scanner in = new Scanner(System.in);
 		System.out.print("Login Username: ");
 		String name = in.nextLine();
 		in.close();
-
-		// Step 1 & 2: Load Driver and Get connection using DbUtils reading from
-		// properties file
-		DbUtils config = DbUtils.getInstance();
-		try (Connection conn = config.getConnection()) {
-
-			// Step 3: Create statement (use prepared statement NOT normal statement)
-			PreparedStatement stmt = conn.prepareStatement("SELECT * FROM accounts WHERE customer_name = ?");
-			stmt.setString(1, name);
-
-			// Step 4: Execute statement
-			ResultSet rs = stmt.executeQuery();
-
-			// Step 5: Process results
-			if (rs.next()) {
-				System.out.println("Account Details: ");
-
-				String customer = rs.getString("customer_name");
-				int id = rs.getInt("id");
-				double balance = rs.getDouble("balance");
-				System.out.printf("%d %20s $%.2f%n", id, customer, balance);
-			} else {
-				System.out.println("No account found for name \"" + name + "\"");
-			}
-		} catch (SQLException e) {
-			System.out.println("Unable to get connection: " + e.getMessage());
+		
+		Optional<Account> result = dao.findByName(name);
+		if (result.isPresent()) {
+			Account account = result.get();
+			System.out.println("Here is your Account info: ");
+			System.out.println(account);
+		} else {
+			System.out.println("No account found");
 		}
 	}
 
