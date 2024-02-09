@@ -2,9 +2,11 @@ package com.skillstorm;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  * This is an overview of how to connect to a MySQL database using JDBC
@@ -14,6 +16,10 @@ import java.sql.Statement;
 public class JdbcOverview {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		Scanner in = new Scanner(System.in);
+		System.out.print("Login Username: ");
+		String name = in.nextLine();
+		in.close();
 		// Step 1: Load the driver (optional in JDBC 4+)
 		Class.forName("com.mysql.cj.jdbc.Driver"); // optional these days it happens automatically
 		
@@ -39,11 +45,36 @@ public class JdbcOverview {
 			ResultSet rs = stmt.executeQuery("SELECT * FROM account"); // semicolon optional
 			System.out.println("Done");
 			// Step 5: Process the results
-			while (rs.next()) {
+			///////////////////////////////////////////////////////////////////////////////////
+//			while (rs.next()) {
+//				String customer = rs.getString("customer_name");
+//				int id = rs.getInt("id");
+//				double balance = rs.getDouble("balance");
+//				System.out.printf("%d %20s $%.2f%n", id, customer, balance);
+//			}
+			/////////////////////////////////////////////////////////////////////////////////////
+//			rs = stmt.executeQuery("SELECT * FROM account WHERE customer_name = \"" + name + "\";");
+//			System.out.println("Here is your account info");
+//			if (rs.next()) {
+//				String customer = rs.getString("customer_name");
+//				int id = rs.getInt("id");
+//				double balance = rs.getDouble("balance");
+//				System.out.printf("%d %20s $%.2f%n", id, customer, balance);
+//			} else {
+//				System.out.println("No account found");
+//			}
+			///////////////////////////////////////////////////////////////////////////////////////
+			PreparedStatement prstmt= conn.prepareStatement("SELECT * FROM account WHERE customer_name = ?;");
+			prstmt.setString(1, name); // not zero indexed
+			System.out.println("Here is your account info");
+			ResultSet result = prstmt.executeQuery();
+			if (result.next()) {
 				String customer = rs.getString("customer_name");
 				int id = rs.getInt("id");
 				double balance = rs.getDouble("balance");
 				System.out.printf("%d %20s $%.2f%n", id, customer, balance);
+			} else {
+				System.out.println("No account found");
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
