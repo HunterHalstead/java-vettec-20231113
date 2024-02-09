@@ -41,7 +41,5 @@ public class AccountDao implements Dao<Account, Integer> {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
 
 }
