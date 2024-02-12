@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!-- This is a comment -->
+    <!-- This is a comment 
+    with multiple 
+    lines
+    -->
+
+    <!-- project coordinates -->
+    <groupId>com.skillstorm.training</groupId>
+    <artifactId>maven-practice</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <!-- Optional Properties we can set -->
+    <name>Maven Practice Project</name>
+    <description>This project is for practicing using Maven.</description>
+
+    <!-- Add some dependencies -->
+    <dependencies>
+
+
+        <!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.3.0</version>
+        </dependency>
+        <!--
+        https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>

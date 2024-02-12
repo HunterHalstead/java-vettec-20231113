@@ -22,17 +22,12 @@ public class DbUtils {
 
 	private void readProperties() throws IOException {
 		Properties props = new Properties();
-//		try (InputStream input = DbUtils.class.getClassLoader().getResourceAsStream("db.properties")) {
-//			props.load(input);
-		ResourceBundle rb = ResourceBundle.getBundle("com.skillstorm.resources.db");
-		rb.keySet()
-		  .stream()
-//		  .peek(k -> System.out.println(k + " " + rb.getString(k)))
-		  .forEach(k -> props.put(k, rb.getString(k)));
+		try (InputStream input = DbUtils.class.getClassLoader().getResourceAsStream("db.properties")) {
+			props.load(input);
 		this.url = props.getProperty("db.url");
 		this.user = props.getProperty("db.user");
 		this.password = props.getProperty("db.password");
-//		}
+		}
 	}
 
 	public static DbUtils getInstance() throws IOException {
