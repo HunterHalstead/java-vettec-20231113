@@ -1,7 +1,7 @@
 package com.skillstorm;
 
 /**
- * @author Team _______________
+ * @author Team Dragon
  */
 public class TitleCaseTests {
 

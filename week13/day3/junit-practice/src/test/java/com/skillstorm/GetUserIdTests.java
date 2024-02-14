@@ -1,7 +1,7 @@
 package com.skillstorm;
 
 /**
- * @author Team ___________
+ * @author Team Chip
  */
 public class GetUserIdTests {
 	
