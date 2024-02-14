@@ -29,4 +29,9 @@ public class GetQueryParameterValueTests {
 		assertEquals(null, getQueryParameterValue(urlCase1, keyCase1));
 		assertThrows(NullPointerException.class, () -> {getQueryParameterValue(urlCase4, keyCase2);});
 	}
+	
+	@Test
+	void nullURL() {
+		assertThrows(NullPointerException.class, () -> {GroupWork.getQueryParameterValue(null, "any String");});
+	}
 }
