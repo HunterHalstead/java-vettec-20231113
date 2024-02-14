@@ -1,7 +1,7 @@
 package com.skillstorm;
 
 /**
- * @author Team __________
+ * @author Team Best
  */
 public class GetQueryParameterValueTests {
 
