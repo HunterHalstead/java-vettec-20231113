@@ -7,13 +7,13 @@ public class Calculator {
 	}
 	
 	/**
-	 * Subtracts a from b
+	 * Subtracts a - b
 	 * @param a
 	 * @param b
-	 * @return returns the result from subtracting a from b
+	 * @return returns the result from subtracting a - b
 	 */
 	public static int subtract(int a, int b) {
-		return b - a;
+		return a - b;
 	}
 	
 	public static int divide(int a, int b) {
