@@ -20,7 +20,10 @@ public class GroupWork {
 	 * @author Team _____________
 	 * 
 	 * @throws NullPointerException     if the url or key are null
-	 * @throws IllegalArgumentException 
+	 * @throws IllegalArgumentException the key is empty, 
+	 *                                  the key handed in contains an illegal character 
+	 *                              Illegal characters are:
+	 *                                  {@literal ";", "/", "?", ":", "@", "&", "=", "+", ",", and "$"}
 	 */
 	public static String getQueryParameterValue(String url, String key) {
 		return null;
@@ -81,7 +84,7 @@ public class GroupWork {
 	 * @throws IllegalArgumentException if str is null
 	 */
 	public String titleCase(String str) {
-		return str;
+		return null;
 	}
 }
 
