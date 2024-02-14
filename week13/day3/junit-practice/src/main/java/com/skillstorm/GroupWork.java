@@ -17,7 +17,7 @@ public class GroupWork {
 	 * @param key the name of the url's query parameter to grab the value from
 	 * @return String containing the value or null if the key is not present.
 	 * 
-	 * @author Team _____________
+	 * @author Team Chip
 	 * 
 	 * @throws NullPointerException     if the url or key are null
 	 * @throws IllegalArgumentException the key is empty, 
@@ -45,7 +45,7 @@ public class GroupWork {
 	 *            {@literal https://www.skillstorm.store.com/user/12345}
 	 * @return an int containing the users id number
 	 * 
-	 * @author Team ________
+	 * @author Team Dragon
 	 * 
 	 * @throws IllegalArgumentException if the url is null or empty
 	 * @throws NoSuchElementException if the string does not contain the term "user"
@@ -76,7 +76,7 @@ public class GroupWork {
 	 * - articles (“a,” “an,” “the”)
 	 * - short prepositions (e.g., “as,” “at,” “by,” “for,” “in,” “of,” “off,” “on,” “per,” “to,” “up,” “via”)
 	 * 
-	 * @author Team _______________
+	 * @author Team Best
 	 * 
 	 * @param str 
 	 * @return The original string with the capitalization changed to title-case 

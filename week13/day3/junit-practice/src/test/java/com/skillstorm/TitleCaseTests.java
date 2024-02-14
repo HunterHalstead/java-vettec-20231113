@@ -26,8 +26,9 @@ public class TitleCaseTests {
 	}
 
 	@Test
-    void testAllCaps(){
+    void testAllCaps() {
         assertEquals("Vertigo", work.titleCase("VERTIGO"));
+	}
 
 	@Test
 	void testFirstWordConjunction() {
