@@ -22,7 +22,7 @@ public class DbUtils {
 
 	private void readProperties() throws IOException {
 		Properties props = new Properties();
-		try (InputStream input = DbUtils.class.getClassLoader().getResourceAsStream("db.properties")) {
+		try (InputStream input = DbUtils.class.getClassLoader().getResourceAsStream("com/skillstorm/resources/db.properties")) {
 			props.load(input);
 		this.url = props.getProperty("db.url");
 		this.user = props.getProperty("db.user");
