@@ -51,8 +51,8 @@ public class BookDaoTests {
 			int authorId = getId("author", "Jane Austen", conn);
 			int genreId = getId("genre", "Fiction", conn);
 			List<Book> books = new ArrayList<>();
-			books.add(new Book(0, "Pride and Prejudice", 1, 1813, "9780141199078", 1));
-			books.add(new Book(0, "Emma", 1, 1815, "9781551113210", 1));
+			books.add(new Book(0, "Pride and Prejudice", authorId, 1813, "9780141199078", genreId));
+			books.add(new Book(0, "Emma", authorId, 1815, "9781551113210", genreId));
 			String sql = "INSERT INTO testlibrary.book (title, author_id, publication_year, isbn, genre_id) VALUES "
 					+ "(?, ?, ?, ?, ?);";
 			PreparedStatement stmt = conn.prepareStatement(sql);

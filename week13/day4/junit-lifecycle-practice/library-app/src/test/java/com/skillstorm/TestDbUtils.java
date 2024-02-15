@@ -31,8 +31,8 @@ public class TestDbUtils implements Config {
 			this.password = props.getProperty("db.password");
 			System.out.println(">> Reading properties: ");
 			System.out.println("     url: " + url);
-			System.out.println("     user: " + url);
-			System.out.println("     password: " + url);
+			System.out.println("     user: " + user);
+			System.out.println("     password: " + password);
 		}
 	}
 
