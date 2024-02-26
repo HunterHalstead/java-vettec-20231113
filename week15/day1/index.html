@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HTML Intro 
+  When building a frontend use separation of concerns
+  1.  content goes  in html files
+  2.  styles goes in CSS files
+  3.  behavior goes in js files -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="html,learn to code, css, javascript">
+    <title>Hello</title>
+    Whoops. This shouldn't go here.
+    <style>
+        table,
+        td,
+        tr,
+        th {
+            border: black solid 1px;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Headers -->
+    <header>
+        <h1>Learning About HTML</h1>
+        <h2>Week 15</h2>
+        <h3>Day 1</h3>
+        <h4>Java VetTec 20231113</h4>
+        <h5>Author: Erica</h5>
+        <h6>Last Updated: Feb 26, 2024</h6>
+        <nav><a rel="norefferer noopener" target="_blank" href="https://www.amazon.com/s?k=cat+toy">Cat Toys</a> | <a href="#good-bye">Good-bye</a> | Link3</nav>
+    </header>
+    <main>
+        <div>
+
+            <!-- Semantic Block Elements added in HTML 5
+                - main
+                - header
+                - footer
+                - nav
+                - article
+                - section
+            beneifits instead of using div: 
+                - readability (for humans and web crawlers)
+    -->
+
+            <!-- Lists -->
+            <p>My favorite animals ranked</p>
+            <ol>
+                <li>Cats</li>
+                <li>Dogs</li>
+                <li>Bunnies</li>
+                <li>Hamsters</li>
+            </ol>
+
+            <p>My favorite foods in no particular order:
+            <ul type="square">
+                <li>Chocolate</li>
+                <li>Apples</li>
+                <li>Pizza</li>
+                <li>Bananas Foster</li>
+            </ul>
+            </p>
+
+            <p>
+                This is a descriptive list:
+            <dl>
+                <dt>Lunch</dt>
+                <dd>A good time for a nap.</dd>
+                <dt>Dinner</dt>
+                <dd>A good time for bananas foster.</dd>
+            </dl>
+            </p>
+            <!-- Tables 
+            (please don't use tables for page layout use css)
+            -->
+            <table>
+                <thead>
+                    <tr>
+                        <td></td>
+                        <th scope="col">Stuff</th>
+                        <th>More Stuff</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Anna</th>
+                        <td>Row 1, Cell 1</td>
+                        <td>Row 1, Cell 2</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Barbie</th>
+                        <td>Row 2, Cell 1</td>
+                        <td>Row 2, Cell 2</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row">Summary</th>
+                        <td colspan="2">Row 3, Summary</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <!-- Forms -->
+            <p>Forms are useful for getting user input and submitting data.</p>
+            <form action="#" method="get">
+                <div>
+                    <label for="full-name">Name: </label>
+                    <input id="full-name" name="full-name" type="text" placeholder="John Doe">
+                </div>
+                <div>
+                    <label for="age">Age: </label>
+                    <input id="age" name="age" type="number" max="115" min="0">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input id="email" name="email" type="email">
+                </div>
+                <div>
+                    <select name="cars">
+                        <option selected disabled>Select an Option</option>
+                        <option value="1">Bug</option>
+                        <option value="2">volk</option>
+                        <option value="3">mazda 3</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color">Favorite Color: </label>
+                    <input id="color" name="color" type="color" /> <!-- self closing tag can be < /> or just < >-->
+                </div>
+                <div>
+                    <label>Date</label>
+                    <input name="day" type="date">
+                </div>
+                <div>
+                    <label>Date</label>
+                    <input name="day" type="date">
+                </div>
+                <div>
+                    <input type="submit">
+                    <!-- <button>Reset</button> -->
+                    <input type="reset">
+                </div>
+            </form>
+            <!-- This is a comment
+    Notice, we are using HTML tags to describe how the content should be rendered -->
+            <!-- Block elements:
+    - div (generic division of the page) takes up the whole horizontal block
+    - p (div with extra styling to add margin above and below)
+     --->
+            Hello World! Today is <strong>awesome</strong>! Tomorrow is going to be even better!
+            <div>What is up with this? Space is ignored...</div>
+            <br>
+            <br />
+            <br /> <!-- These days you can ommit the /> in your break tags when creating newlines-->
+            <p>What if I do this?</p>
+            <!-- Inline elements:
+    - span (generic inline element) takes up only what it needs to hold the contents
+    - strong (span with extra styling, normally bold font to draw attention to the content)
+    - em (emphasis normally rendered as italics)
+    =--->
+            <div>
+                <video width="320" height="240" controls>
+                    <source src="./flower-blossom.webm" type="video/webm">
+                    <source src="movie.ogg" type="video/ogg">
+                    Your browser does not support the video tag.
+                </video>Where will this text go? And more text?
+            </div>
+            <!-- img is a self-closing tag
+         note, we should put an alt description for screenreaders
+         and it is an in-line element
+    -->
+            <img src="https://m.media-amazon.com/images/I/615Ccf+wziL._AC_UL320_.jpg" alt="this is a feather cat toy" />
+
+
+        </div>
+    </main>
+    <footer id="good-bye">Have a nice day. Thanks for visiting my website!</footer>
+</body>
+
+</html>
