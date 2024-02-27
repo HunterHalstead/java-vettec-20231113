@@ -7,72 +7,124 @@
     <title>CSS Position Values</title>
 </head>
 
-    <!-- Border Box -->
-    <h1>Box Sizing</h1>
-    <p>Every element has the size of the content, padding, border, margin.</p>
-    <hr>
+<!-- Border Box -->
+<h1>Box Sizing</h1>
+<p>Every element has the size of the content, padding, border, margin.</p>
+<style>
+    .border-box {
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+        border: 10px pink solid;
+        /* variations on specifying padding:display: 
+            option 1: 
+        */
+        padding: 5px; /* top right bottom left */
+        padding: 5px 70px; /* top-bottom 5px right-left 70 */
+        padding: 5px 10px 20px 40px; /* top right bottom left NESW like a clock clockwise */
+        /* box-sizing: border-box; */
+        margin-bottom: 5px;
+        /* display: inline-block; */
+    }
+</style>
+<div class="border-box"></div>
+<div class="border-box"></div>
+<hr>
 
-    <!-- Display settings inline vs block -->
+<!-- Display settings inline vs block -->
 
-    <!-- Position settings -->
-    <!-- Z-index -->
-    <h2>Static Positioning</h2>
-    <style>
-        .static-box {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
-    </style>
-    <p>Follows the normal flow of the document.</p>
-    <!-- <div class="static-box"></div> -->
-    <p>So that's static positioning.</p>
-    <hr>
-    <h2>Relative Positioning</h2>
-    <style>
-        .relative-box {
-            width: 100px;
-            height: 100px;
-            background-color: blue;
-            position: relative;
-            top: 25px;
-            left: 20px;
-        }
-    </style>
-    <p>Takes up it's normal space in the normal flow of the document even though it is offset from static positioning.
-    </p>
-    <!-- <div class="static-box">
-        <div class="relative-box"></div>
-    </div> -->
-    <p>So that's relative positioning.</p>
-    <hr>
-    <h2>Absolute Positioning</h2>
-    <style>
-        .absolute-container {
-            position: relative;
-            width: 200px;
-            height: 200px;
-            background-color: lightgrey;
-            padding: 0.5em;
-        }
+<!-- Position settings -->
+<!-- Z-index -->
+<h2>Static Positioning</h2>
+<style>
+    .static-box {
+        width: 120px;
+        height: 120px;
+        background-color: red;
+    }
+</style>
+<p>Follows the normal flow of the document.</p>
+<div class="static-box"></div>
+<p>So that's static positioning.</p>
+<hr>
+<h2>Relative Positioning</h2>
+<style>
+    .relative-box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: relative;
+        top: 50px;
+        left: 20px;
+        z-index: -1;
+    }
+</style>
+<p>Takes up it's normal space in the normal flow of the document even though it is offset from static positioning.
+</p>
+<div class="static-box">
+    <div class="relative-box"></div>
+</div>
+<p>So that's relative positioning.</p>
+<hr>
+<h2>Fixed Positioning</h2>
+<style>
+    .fixed-box {
+        position: fixed;
+        background-color: yellow;
+        width: 100px;
+        height: 100px;
+        top: 0px;
+        right: 0px;
+    }
+</style>
+<p>As the page scrolls this should not</p>
+<div class="static-box">
+    <div class="fixed-box"></div>
+</div>
+<p>So that's fixed.</p>
+<hr> <!-- horizontal line separator -->
+<h2>Sticky Positioning</h2>
+<style>
+    .sticky-box {
+        position: sticky;
+        background-color: greenyellow;
+        width: 100px;
+        height: 100px;
+        top: 0px;
+        right: 0px;
+    }
+</style>
+<p>As the page scrolls this should not</p>
+<div class="static-box">
+    <div class="sticky-box"></div>
+</div>
+<p>So that's fixed.</p>
+<hr> <!-- horizontal line separator -->
+<h2>Absolute Positioning</h2>
+<style>
+    .absolute-container {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        background-color: lightgrey;
+        padding: 0.5em;
+    }
 
-        .absolute-box {
-            width: 100px;
-            height: 100px;
-            background-color: rgba(0, 128, 0, 0.5);
-            position: absolute;
-            top: 50px;
-            left: 50px;
-        }
-    </style>
-    <div class="absolute-container">
-        Absolute positioning you will normally make sure it's parent is relative,
-        <br>otherwise you are potitioning absolute so from the top-left corner of the page.
-        <!-- <div class="absolute-box"></div> -->
-        <br>Notice, there is no space in the normal flow of the document reserved for an absolute
-        element.
-    </div>
-    <hr>
-    </body>
+    .absolute-box {
+        width: 100px;
+        height: 100px;
+        background-color: rgba(0, 128, 0, 0.5);
+        position: absolute;
+    }
+</style>
+<div class="absolute-container">
+    Absolute positioning you will normally make sure it's parent is relative,
+    <br>otherwise you are potitioning absolute so from the top-left corner of the page.
+    <div class="absolute-box"></div>
+    <br>Notice, there is no space in the normal flow of the document reserved for an absolute
+    element.
+</div>
+<hr>
+</body>
 
 </html>
