@@ -1,0 +1,16 @@
+:root {
+    --footer-height: 3em;
+    --header-height: 6em;
+}
+
+footer {
+    height: var(--footer-height);
+}
+
+header {
+    height: var(--header-height);
+}
+
+main {
+    min-height: calc(100vh - calc(var(--footer-height) + var(--header-height)));
+}

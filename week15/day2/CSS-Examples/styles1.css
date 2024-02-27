@@ -1,0 +1,36 @@
+/* This is a comment in a CSS file
+
+Question: How can I declare styling rules?
+
+Notation: 
+- selector
+- curly braces
+- key-value pair of the style and value
+*/
+h1 {
+    color: #8a2be2;
+}
+
+li:hover {
+    background-color: yellow;
+}
+li:nth-child(3) {
+    background-color: yellowgreen;
+}
+nav {
+    margin: 1ex;
+}
+nav > a::after {
+    content: " | ";
+}
+/* How can you override the above style for the last anchor tag to not have a | after it?*/
+
+li { /* specificity: 0-0-1 */
+    font-weight: bolder;
+}
+#internal { /* specificity: 1-0-0 */
+    font-weight: lighter;
+}
+.red { /* specificity: 0-1-0 */
+    font-weight: bold;
+}

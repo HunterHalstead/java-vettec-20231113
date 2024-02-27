@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Examples</title>
+</head>
+
+<body>
+    <h1>HTML Forms</h1>
+    <h2>Radio and Checkbox Inputs</h2>
+    <form action="https://www.w3schools.com/action_page.php" method="post">
+        <fieldset>
+            <legend>Favorite Animals</legend>
+            <div>
+                <input id="cat" type="checkbox" name="cat" value="yes">
+                <label for="cat">Cat</label>
+            </div>
+            <div>
+                <input id="dog" type="checkbox" name="dog" value="yes">
+                <label for="dog">Dog</label>
+            </div>
+            <div><input id="kangaroo" name="kangaroo" type="checkbox" value="yes">
+                <label for="kangaroo">Kangaroo</label>
+            </div>
+            <div>
+                <input id="turtle" name="turtle" type="checkbox" value="yes">
+                <label for="turtle">Turtles</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Favorite Fruit</legend>
+            <div>
+                <input id="apple" type="radio" name="fruit" value="apple">
+                <label for="apple">Apple</label>
+            </div>
+            <div>
+                <input id="kiwi" type="radio" name="fruit" value="kiwi">
+                <label for="kiwi">Kiwi</label>
+            </div>
+            <div>
+                <input id="mango" type="radio" name="fruit" value="mango">
+                <label for="mango">Mango</label>
+            </div>
+        </fieldset>
+        <button type="submit">Submit</button>
+        <!-- <button type="reset">Clear</button> -->
+        <input type="reset" value="Clear">
+        <!-- <input type="submit"> -->
+    </form>
+</body>
+
+</html>
