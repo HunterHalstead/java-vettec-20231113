@@ -33,3 +33,32 @@ footer {
     clear: both;
 }
 ```
+
+## CSS Grid Notes
+
+CSS Grid allows us to define a grid system to place items in on the page. The grid must be defined using a template, and then items must be placed into areas or placed relative to gridlines.
+
+Example 1: 
+
+```css
+.container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 200px;
+   grid-template-rows: repeat(3, 1fr) 5fr 1fr;
+   grid-template-areas: "h1 h1 s1" 
+                        "h2 h2 s2"
+                        "h3 h3 s2"
+                        "m  m  s2"
+                        "f  f  f ";
+}
+.header {
+   grid-area: h1 h2 h3;
+}
+.item1 {
+  grid-column: 1 / span 3;
+  grid-row: 1 / 2;
+}
+```
+Example 2: Another example is illustrated below.
+
+![CSS Grid Illustration](./imgs/css-grid-notes.png)
