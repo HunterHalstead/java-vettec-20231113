@@ -12,14 +12,27 @@
             margin: 0px;
             padding: 0px;
         }
-
+        main {
+            padding: 20px;
+            background-color: lightsteelblue;
+            height: 500px;
+        }
         /* display: flex designates this container as a flexbox */
         .flexbox {
+            display: flex;
+           /* flex-direction: column-reverse;  default row */
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            /* row-gap: 20px;
+            column-gap: 30px; */
+            align-items: self-start;
         }
 
         div {
-            text-align: center;
-            padding: 3em 0px;
+            /* text-align: center; */
+            /* padding: 3em 0px; */
+            padding: 0.5em;
+            height: 100px;
             width: 100px;
         }
 
@@ -37,6 +50,7 @@
 
         .green {
             background-color: green;
+            align-self: flex-end;
         }
 
         .blue {
@@ -52,7 +66,6 @@
     <h1>FLEX BOX</h1>
 
     <main class="flexbox">
-
         <div class="red">1</div>
         <div class="orange">2</div>
         <div class="yellow">3</div>
@@ -60,7 +73,7 @@
         <div class="blue">5</div>
         <div class="red">6</div>
         <div class="orange">7</div>
-        <div class="yellow">8</div>
+        <!--  <div class="yellow">8</div> -->
 
     </main>
     

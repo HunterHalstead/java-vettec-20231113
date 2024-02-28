@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Queries</title>
+    <style>
+        @media (width <= 400px) /* orienation portrait */ {
+            /* This rule is only applied when the device is 
+            <= 400px wide */
+            body {
+                background-color: pink;
+            }
+            img {
+                border: orange 6px dotted;
+            }
+        }
+    </style>
 </head>
-<body>
     <h1>Media Queries</h1>
     <p>Media queries allow us to make conditional CSS rules that will only apply on some devices based on screen size or orientation for instance.</p>
     <p>Tips: Use the browser tool for viewing our webpage on different devices and size screens.</p>
-    <img src="imgs/dev-tools-resize.png" alt="Browser Dev Tools for viewing page on different size devices">
+    <img src="imgs/dev-tools-resize.png" alt="Browser Dev Tools for viewing page on different size devices" width="600px">
     <p>Try resizing the screen to see the background color change.</p>
+    <img src="./imgs/pink-background-applied.png" width="600px">
 </body>
 </html>
