@@ -15,7 +15,7 @@
             background-color: lavender;
             display: grid;
             grid-template-columns: 4fr 1fr;
-            grid-template-rows: 1fr 1fr 3fr 1fr 1fr;
+            grid-template-rows: 0.75fr 1fr 3fr 1fr 0.5fr;
             grid-template-areas: "header header"
                                  "subheader aside"
                                  "maincontent aside"
@@ -40,6 +40,10 @@
         .footer {
             grid-area: footer;
         }
+        .login {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+        }
         div {
             padding: 1em;
         }
@@ -63,11 +67,17 @@
             background-color: #e9ecef;
             border: 1px grey solid;
         }
+        .purple {
+            background-color: #d0bfff;
+            border: 1px solid #9c36b5;
+            margin: 5px 5px 5px 0;
+        }
     </style>
 </head>
 <body>
     <main class="container">
-        <div class="red header">1</div>
+        <div class="red header">1 </div>
+        <div class="purple login">Login</div>
         <div class="blue subheader">2</div>
         <div class="orange aside">3</div>
         <div class="green mainconent">4</div>
