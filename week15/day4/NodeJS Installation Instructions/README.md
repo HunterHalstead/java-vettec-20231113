@@ -6,7 +6,7 @@ To practice with JavaScript outside the browser, we will start to use a NodeJS t
 
 Node.js runs the V8 JavaScript engine, the core of Google Chrome, outside of the browser. So similar to Java which needs the Java Runtime Environment (JRE) to run, JavaScript needs a runtime environment. 
 
-Traditionally, JavaScript was only run inside of web browsers, but these days it is also used for web servers were it runs inside of the NodeJS runtime environment.
+Traditionally, JavaScript was only run inside of web browsers, but these days it is also used for web servers were it runs inside of the NodeJS runtime environment instead.
 
 ## Download Instructions
 
@@ -55,7 +55,7 @@ For the Windows installer, just use the defaults of the walkthrough wizard until
 
 ![Install NodeJS Wizard Step 5](./imgs/nodejs-install-5.png)
 
-7. The installation process might take a coule minutes. When it is complete, select Next.
+7. The installation process might take a couple minutes. When it is complete, select Next.
 
 ![Install NodeJS Wizard Step 6](./imgs/nodejs-install-6.png)
 
