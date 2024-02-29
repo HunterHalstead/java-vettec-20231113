@@ -2,7 +2,8 @@
 
 To practice with JavaScript outside the browser, we will start to use a NodeJS to run our code in the IDE terminal instead of in a web browser. 
 
-> [!NOTE] Node.js is an open-source and cross-platform JavaScript runtime environment. 
+> [!NOTE]
+> Node.js is an open-source and cross-platform JavaScript runtime environment. 
 
 Node.js runs the V8 JavaScript engine, the core of Google Chrome, outside of the browser. So similar to Java which needs the Java Runtime Environment (JRE) to run, JavaScript needs a runtime environment. 
 
