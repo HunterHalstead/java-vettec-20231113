@@ -26,4 +26,18 @@
     - template literals (String.format in Java)
     - Promises (this is like Java Futures multithreading)
 
+- 2009 Ryan Dahl introduced NodeJS to run JavaScript outside of the browser (now we can use JavaScript for web server backend development)
+ - Google Chrome V8 Engine (JavaScript Runtime environemnt)
+
+Now we have multiple ways to run out JavaScript
+1. In our HTML page inside a `<script>` tag
+2. In our HTML page by linking in .js file via 
+```html
+<script src="file/path"></script>
+```
+3. In our terminal using the `node` command
+4. In our terminal using the `node` command and a file name
+```
+> node hello.js
+```
 
