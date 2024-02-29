@@ -41,3 +41,20 @@ Now we have multiple ways to run out JavaScript
 > node hello.js
 ```
 
+## V8 Engine
+
+- open source JavaScript engine developed by Google
+
+Features:
+
+1. Just-in-time Compilation (JIT) - faster than interpretted languages, it can do optimization in how the code is compiled and executed at runtime
+2. Gargabe collection - reduces memory consumption
+3. Embeddable into any C++ program, example NodeJS
+
+- Suggestion: run a function in different browsers and see how long they take
+
+```JavaScript
+console.time("my-timer")
+myFunction()
+console.timeEnd("my-timer")
+```
