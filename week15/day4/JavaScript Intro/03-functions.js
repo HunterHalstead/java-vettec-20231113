@@ -40,3 +40,35 @@ day(true);
 // store functions in variables - functions are first class citizens
 let talk = function() { console.log("talking")}
 talk();
+
+//////////////////////////////////////////////////////////////////////
+// Closures
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+function a() {
+    let name = "bob";
+    function b() {
+        console.log(name + " is awesome")
+    }
+    return b;
+}
+const myB = a(); // store the function b AND all the variables that were in lexicographic scope
+// at this point a() has finished executing
+// let is block scoped so we would expect the variable name to now be garbage collected
+myB();
+
+// Example of closure
+function repeater(x) {
+    function inner(str) {
+        console.log(str.repeat(x));
+    }
+    return inner;
+}
+const doubler = repeater(2);
+const tripler = repeater(3);
+
+doubler("kitty");
+tripler("meow");

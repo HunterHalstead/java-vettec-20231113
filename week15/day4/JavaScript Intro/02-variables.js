@@ -52,3 +52,8 @@ let myVar2 = 2;
 
 console.log(myVar3); // throws an error if try to access myVar3 before initialization
 const myVar3 = 3;
+
+// variable naming conventions
+// - camelCase
+// - cannot be a reserved word 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words

@@ -50,3 +50,13 @@ let un; // undefined - indicates a variable has not  been assigned a value yet (
 console.log(un);
 let nu = null; // null - placeholder for an object (normally intentional)
 console.log(nu);
+
+///////////////////////////////////////////
+// Arrays
+let arr = [1, "hi", true];
+console.log(arr);
+
+//////////////////////////////////////////
+// Objects
+let obj = { x : 1, y : 2 };
+console.log(obj);
