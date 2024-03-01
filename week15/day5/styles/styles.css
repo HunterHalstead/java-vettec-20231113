@@ -16,13 +16,17 @@
 #fact {
     border: 1px solid black;
 }
-#btnFact {
+.btn {
     border: none;
-    background-color: lightBlue;
     padding: 0.5em;
     border-radius: 5px;
 }
-#btnFact:hover {
+.blue {
+    background-color: white;
+    border:rgb(60, 123, 144) 2px solid;
+    color: rgb(60, 123, 144) ;
+}
+.blue:hover {
     background-color: rgb(60, 123, 144);
     color: white;
 }
