@@ -3,6 +3,7 @@ package com.skillstorm.controllers;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import com.skillstorm.services.CustomerService;
 
 @RestController
 @RequestMapping("/customers")
+@CrossOrigin("*") // I'm letting every domain call my api
 public class CustomerController {
 
 	private CustomerService service;

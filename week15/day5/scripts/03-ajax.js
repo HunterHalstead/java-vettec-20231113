@@ -46,3 +46,31 @@ function requestFact() {
 
 //////////////////////////////////////////
 // Using the fetch API
+// Returns a promise
+// Promises have 3 states
+// 1. Pending
+// 2. Fulfilled
+// 3. Rejected
+fetch("https://catfact.ninja/fact")
+.then((response) => {
+//    console.log(response)
+   return response.json();
+}) // returns a promise so we can chain another .then()
+.then((data) => {
+    console.log(data.fact)
+})
+.catch((error) => { 
+    console.log(error)
+})
+
+fetch("http://localhost:8080/customers")
+.then((response) => {
+//    console.log(response)
+   return response.json();
+}) // returns a promise so we can chain another .then()
+.then((data) => {
+    console.log(data)
+})
+.catch((error) => { 
+    console.log(error)
+})
