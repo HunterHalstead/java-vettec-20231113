@@ -1,0 +1,28 @@
+/* What is the CSS selector for a class? dot-then-the-name */
+.box {
+    width: 200px;
+    height: 200px;
+}
+.blue-sky {
+    background-image: radial-gradient(circle, yellow, white, lightblue)
+}
+.container {
+    display: flex;
+    /* center horizontally with */
+    justify-content: center;
+    /* center vertical */
+    align-items: center;
+}
+#fact {
+    border: 1px solid black;
+}
+#btnFact {
+    border: none;
+    background-color: lightBlue;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+#btnFact:hover {
+    background-color: rgb(60, 123, 144);
+    color: white;
+}
