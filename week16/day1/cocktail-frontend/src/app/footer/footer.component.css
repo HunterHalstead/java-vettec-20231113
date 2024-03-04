@@ -1,0 +1,8 @@
+footer {
+    background-color: rgb(114, 114, 114);
+    padding: .75em;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-style: italic;
+}
