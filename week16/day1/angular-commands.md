@@ -1,4 +1,4 @@
-#ANGULAR COMMANDS
+# ANGULAR COMMANDS
 
 ng new <project name> -- create a new project
 - will create its own repo if you're outside of one
