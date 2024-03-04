@@ -23,19 +23,16 @@ export class BackendService {
 
   getAllCocktailsByLetter(letter: String) {
     // takes in a URL and an observable type
-    this.http.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + letter, { observe: 'response' })
+    this.http.get<any>('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + letter, { observe: 'response' })
              .subscribe(data => {
 
               // cleaning out the raw array
               // so we don't have duplicates
               this.cocktailsByLetterRaw = [];
 
-              // creating a possibly null holder for data
-              let temp: any = data.body;
-
               // looping through the data and adding
               // each cocktail to the array
-              for (let cocktail of temp['drinks']) {
+              for (let cocktail of data.body.drinks) {
                 this.cocktailsByLetterRaw.push(cocktail);
               }
 
