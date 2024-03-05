@@ -3,6 +3,7 @@
 export class Cocktail {
     // properties
     idDrink: string;
+    strDrink: string;
     strAlcoholic: string;
     strDrinkThumb: string;
     strGlass: string;
@@ -14,6 +15,7 @@ export class Cocktail {
 
     // constructor
     constructor(idDrink: string,
+                strDrink: string,
                 strAlcoholic: string,
                 strDrinkThumb: string,
                 strGlass: string,
@@ -23,6 +25,7 @@ export class Cocktail {
                 strIngredient4: string,
                 strInstructions: string) {
         this.idDrink = idDrink;
+        this.strDrink = strDrink;
         this.strAlcoholic = strAlcoholic;
         this.strDrinkThumb = strDrinkThumb;
         this.strGlass = strGlass;

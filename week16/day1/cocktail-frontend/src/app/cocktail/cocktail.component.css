@@ -1,0 +1,23 @@
+section {
+    background-color: rgb(121, 200, 200);
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0px 6px 6px 0px;
+    width: 300px;
+    display: inline-block;
+}
+
+img {
+    width: 100px;
+    float: left;
+    margin-right: 16px;
+}
+
+h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p {
+    margin-bottom: 0px;
+}

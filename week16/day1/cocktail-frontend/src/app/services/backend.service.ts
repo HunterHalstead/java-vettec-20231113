@@ -35,6 +35,7 @@ export class BackendService {
               // each cocktail to the array
               for (let cocktail of data.body.drinks) {
                 this.cocktailsByLetterRaw.push(new Cocktail(cocktail.idDrink,
+                                                            cocktail.strDrink,
                                                             cocktail.strAlcoholic,
                                                             cocktail.strDrinkThumb,
                                                             cocktail.strGlass,

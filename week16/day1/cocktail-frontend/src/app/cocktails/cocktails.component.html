@@ -1,1 +1,53 @@
-<p>List Of All Cocktails</p>
+<main>
+
+    <h2>COCKTAILS BY FIRST LETTER <button (click)="viewToggle()">Toggle View</button></h2>
+
+    <!-- {{}} is property binding, taking TS values and using them -->
+    <!-- <p>5th Cocktail's Name = {{ cocktails[4].strDrink }}</p> -->
+
+    <!-- [] binds TS values to a tag's property -->
+    <!-- <img [src]="cocktails[4].strDrinkThumb" [alt]="cocktails[4].strDrink"> -->
+
+    <!-- *ngIf displays this container if the value is true -->
+    <ng-container *ngIf="isTable">
+
+        <table>
+            <thead>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Glass</th>
+                <th>Category</th>
+            </thead>
+
+            <!-- using ng-container to loop through cocktails
+                this is a semantic-free, style-free container -->
+
+            <tbody>
+                <!-- *ngFor loops this container for each cocktail in our array -->
+                <ng-container *ngFor="let cocktail of cocktails">
+
+                    <tr>
+                        <td><img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink"></td>
+                        <td>{{ cocktail.strDrink }}</td>
+                        <td>{{ cocktail.strGlass }}</td>
+                        <td>{{ cocktail.strAlcoholic }}</td>
+                    </tr>
+
+                </ng-container>
+
+            </tbody>
+        </table>
+
+    </ng-container>
+
+    <ng-container *ngIf="!isTable">
+        
+        <ng-container *ngFor="let cocktail of cocktails">
+
+            <app-cocktail [cocktail]="cocktail"></app-cocktail>
+
+        </ng-container>
+
+    </ng-container>
+
+</main>
