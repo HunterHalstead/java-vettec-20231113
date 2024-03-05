@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BackendService } from '../services/backend.service';
+import { Cocktail } from '../models/cocktail';
 
 @Component({
     selector: 'app-cocktails',
@@ -9,12 +10,17 @@ import { BackendService } from '../services/backend.service';
 })
 export class CocktailsComponent {
 
+    // local storage for the cocktails
+    cocktails: Cocktail[] = [];
+
     // this constructor injects our backend service
     // to be used throughout this component
     constructor(private backend: BackendService) {
 
         this.backend.cocktailsByLetter.subscribe(data => {
-            console.log(data);
+            this.cocktails = data;
+
+            console.log(this.cocktails);
         })
 
     }

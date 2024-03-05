@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { Cocktail } from '../models/cocktail';
 
 // this decorator allows this to be dependency-injected into other components as needed
 @Injectable({
@@ -9,10 +10,10 @@ import { BehaviorSubject } from 'rxjs';
 export class BackendService {
 
   // where we store raw cocktails from the DB
-  cocktailsByLetterRaw: any[] = [];
+  cocktailsByLetterRaw: Cocktail[] = [];
 
   // a BehaviorSubject maintains a state and notifies an Observable when it has changed
-  cocktailsByLetterSubject = new BehaviorSubject<any[]>([]);
+  cocktailsByLetterSubject = new BehaviorSubject<Cocktail[]>([]);
 
   // creating an Observable to notify subscribers that our Subject has undergone a change
   cocktailsByLetter = this.cocktailsByLetterSubject.asObservable();
@@ -33,7 +34,15 @@ export class BackendService {
               // looping through the data and adding
               // each cocktail to the array
               for (let cocktail of data.body.drinks) {
-                this.cocktailsByLetterRaw.push(cocktail);
+                this.cocktailsByLetterRaw.push(new Cocktail(cocktail.idDrink,
+                                                            cocktail.strAlcoholic,
+                                                            cocktail.strDrinkThumb,
+                                                            cocktail.strGlass,
+                                                            cocktail.strIngredient1,
+                                                            cocktail.strIngredient2,
+                                                            cocktail.strIngredient3,
+                                                            cocktail.strIngredient4,
+                                                            cocktail.strInstructions));
               }
 
               this.cocktailsByLetterSubject.next(this.cocktailsByLetterRaw);
