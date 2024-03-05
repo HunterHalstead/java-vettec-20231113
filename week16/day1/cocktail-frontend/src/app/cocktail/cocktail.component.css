@@ -21,3 +21,7 @@ h4 {
 p {
     margin-bottom: 0px;
 }
+
+button {
+    float: right;
+}

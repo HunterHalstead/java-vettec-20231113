@@ -36,4 +36,21 @@ export class CocktailsComponent {
         this.isTable = !this.isTable;
     }
 
+    // removes a cocktail from the array when clicking table row X
+    // the splice method for arrays takes out and/or adds in elements at a specified spot
+    // first parameter = index at which to cut, second = how many to remove, starting at that index
+    // third (optional) parameter = what to insert at that spot
+    removeCocktailTable(idDrink: string) {
+        for (let cocktail of this.cocktails) {
+            if (cocktail.idDrink === idDrink) {
+                this.cocktails.splice(this.cocktails.indexOf(cocktail), 1);
+            }
+        }
+    }
+
+    removeCocktailGrid(cocktail: Cocktail, index: number) {
+        console.log(cocktail);
+        this.cocktails.splice(index, 1);
+    }
+
 }

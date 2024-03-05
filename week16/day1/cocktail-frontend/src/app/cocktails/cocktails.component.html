@@ -17,6 +17,7 @@
                 <th>Name</th>
                 <th>Glass</th>
                 <th>Category</th>
+                <th>Remove</th>
             </thead>
 
             <!-- using ng-container to loop through cocktails
@@ -24,13 +25,23 @@
 
             <tbody>
                 <!-- *ngFor loops this container for each cocktail in our array -->
-                <ng-container *ngFor="let cocktail of cocktails">
+                <ng-container *ngFor="let cocktail of cocktails; let i = index; let e = even">
 
-                    <tr>
+                    <!-- ngClass allows us to dynamically assign CSS classes
+                            in this case, based on the index value -->
+                    <!-- <tr [ngClass]="{
+                        'even': i % 2 === 0,
+                        'odd': i % 2 !== 0
+                    }"> -->
+                    <tr [ngClass]="{
+                        'even': e,
+                        'odd': !e
+                    }">
                         <td><img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink"></td>
                         <td>{{ cocktail.strDrink }}</td>
                         <td>{{ cocktail.strGlass }}</td>
                         <td>{{ cocktail.strAlcoholic }}</td>
+                        <td><button (click)="removeCocktailTable(cocktail.idDrink)">X</button></td>
                     </tr>
 
                 </ng-container>
@@ -42,9 +53,9 @@
 
     <ng-container *ngIf="!isTable">
         
-        <ng-container *ngFor="let cocktail of cocktails">
+        <ng-container *ngFor="let cocktail of cocktails; let i = index">
 
-            <app-cocktail [cocktail]="cocktail"></app-cocktail>
+            <app-cocktail [cocktail]="cocktail" (deleteCocktailEvent)="removeCocktailGrid($event, i)"></app-cocktail>
 
         </ng-container>
 
