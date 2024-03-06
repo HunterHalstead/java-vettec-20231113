@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { CocktailComponent } from "../cocktail/cocktail.component";
 import { FormsModule } from '@angular/forms';
 import { DataTransferService } from '../services/data-transfer.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-cocktails',
@@ -27,12 +28,11 @@ export class CocktailsComponent {
     // this constructor injects our backend service
     // to be used throughout this component
     constructor(private backend: BackendService,
-                private dt: DataTransferService) {
+                private dt: DataTransferService,
+                private router: Router) {
 
         this.backend.cocktailsByLetter.subscribe(data => {
             this.cocktails = data;
-
-            console.log(this.cocktails);
         })
 
     }
@@ -66,6 +66,10 @@ export class CocktailsComponent {
     // calling to our data-transfer service to update favorite
     updateFavorite(favoriteDrink: string) {
         this.dt.updateFavoriteDrink(favoriteDrink);
+    }
+
+    getDetails(idDrink: string) {
+        this.router.navigate(['cocktails/details/' + idDrink]);
     }
 
 }

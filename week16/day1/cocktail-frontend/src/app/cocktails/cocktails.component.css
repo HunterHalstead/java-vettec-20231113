@@ -36,3 +36,7 @@ form input {
     width: 30px;
     margin-right: 16px;
 }
+
+h4 {
+    font-style: italic;
+}

@@ -1,0 +1,13 @@
+<ul>
+    <li>ID: {{ detailCocktail.idDrink }}</li>
+    <li>Name: {{ detailCocktail.strDrink }}</li>
+    <li>Glass: {{ detailCocktail.strGlass }}</li>
+    <li>Category: {{ detailCocktail.strAlcoholic }}</li>
+    <li>Ing. 1: {{ detailCocktail.strIngredient1 }}</li>
+    <li>Ing. 2: {{ detailCocktail.strIngredient2 }}</li>
+    <li>Ing. 3: {{ detailCocktail.strIngredient3 }}</li>
+    <li>Ing. 4: {{ detailCocktail.strIngredient4 }}</li>
+    <li>Instructions: {{ detailCocktail.strInstructions }}</li>
+</ul>
+
+<img [src]="detailCocktail.strDrinkThumb" [alt]="detailCocktail.strDrink">

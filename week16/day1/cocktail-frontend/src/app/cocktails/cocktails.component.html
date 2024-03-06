@@ -26,6 +26,8 @@
     <!-- *ngIf displays this container if the value is true -->
     <ng-container *ngIf="isTable">
 
+        <h4>Click on an image to get details!</h4>
+
         <table>
             <thead>
                 <th>Image</th>
@@ -53,7 +55,7 @@
                         'even': e,
                         'odd': !e
                     }">
-                        <td><img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink"></td>
+                        <td><img (click)="getDetails(cocktail.idDrink)" [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink"></td>
                         <td>{{ cocktail.strDrink }}</td>
                         <td>{{ cocktail.strGlass }}</td>
                         <td>{{ cocktail.strAlcoholic }}</td>
