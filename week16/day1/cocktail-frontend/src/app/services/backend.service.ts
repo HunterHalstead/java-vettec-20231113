@@ -22,7 +22,7 @@ export class BackendService {
     this.getAllCocktailsByLetter('g');
   }
 
-  getAllCocktailsByLetter(letter: String) {
+  getAllCocktailsByLetter(letter: string) {
     // takes in a URL and an observable type
     this.http.get<any>('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + letter, { observe: 'response' })
              .subscribe(data => {

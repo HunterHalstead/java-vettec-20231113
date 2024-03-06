@@ -27,3 +27,12 @@ th {
 .odd {
     background-color: darkgrey;
 }
+
+form {
+    margin-bottom: 24px;
+}
+
+form input {
+    width: 30px;
+    margin-right: 16px;
+}

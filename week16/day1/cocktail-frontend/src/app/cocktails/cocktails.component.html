@@ -2,6 +2,21 @@
 
     <h2>COCKTAILS BY FIRST LETTER <button (click)="viewToggle()">Toggle View</button></h2>
 
+    <!-- a form that takes in a letter and displays cocktails
+        starting with that letter -->
+        
+    <form>
+
+        <label for="searchLetter">Search For Cocktails Starting With: </label>
+        <!-- this is two-way binding -->
+        <!-- the [(ngModel)] binds the .ts variable searchLetter to the value displayed in the field -->
+        <!-- changing either one will change the other -->
+        <!-- you MUST have a name property that matches exactly, or this will not work!! -->
+        <input [(ngModel)]="searchLetter" type="text" id="searchLetter" name="searchLetter">
+        <button type="submit" (click)="updateLetter()">SUBMIT</button>
+
+    </form>
+
     <!-- {{}} is property binding, taking TS values and using them -->
     <!-- <p>5th Cocktail's Name = {{ cocktails[4].strDrink }}</p> -->
 

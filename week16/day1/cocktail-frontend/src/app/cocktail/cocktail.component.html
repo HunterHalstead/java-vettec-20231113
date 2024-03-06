@@ -1,5 +1,5 @@
 <section>
-    <img [src]="cocktail.strDrinkThumb" alt="cocktail.strDrink">
+    <img [src]="cocktail.strDrinkThumb" [alt]="cocktail.strDrink">
     <button (click)="emitDeleteCocktailEvent()">X</button>
     <h4>{{ cocktail.strDrink }}</h4>
     <p>{{ cocktail.strGlass }}</p>
