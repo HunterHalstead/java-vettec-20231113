@@ -1,5 +1,6 @@
 <h2>MOCKTAIL SUBMISSION FORM</h2>
 
+<!-- this form takes in the values necessary to populate a CocktailComponent -->
 <form>
     <label for="strDrink">Drink Name</label>
     <input [(ngModel)]="strDrink" type="text" id="strDrink" name="strDrink">
@@ -13,12 +14,14 @@
     <label for="strDrinkThumb">Image URL</label>
     <input [(ngModel)]="strDrinkThumb" type="text" id="strDrinkThumb" name="strDrinkThumb">
 
+    <!-- this button is disabled unless all fields are filled -->
     <button type="submit" (click)="populateCocktailComponent()" [disabled]="strDrink === ''
                                                                          || strGlass === ''
                                                                          || strAlcoholic === ''
                                                                          || strDrinkThumb === ''">SUBMIT</button>
 </form>
 
+<!-- this component only appears if the form was fully submitted -->
 <app-cocktail *ngIf="cocktail.strDrink !== ''
                   && cocktail.strGlass !== ''
                   && cocktail.strAlcoholic !== ''
