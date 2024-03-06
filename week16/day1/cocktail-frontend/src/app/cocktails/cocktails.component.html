@@ -33,6 +33,7 @@
                 <th>Glass</th>
                 <th>Category</th>
                 <th>Remove</th>
+                <th>Favorite</th>
             </thead>
 
             <!-- using ng-container to loop through cocktails
@@ -57,6 +58,7 @@
                         <td>{{ cocktail.strGlass }}</td>
                         <td>{{ cocktail.strAlcoholic }}</td>
                         <td><button (click)="removeCocktailTable(cocktail.idDrink)">X</button></td>
+                        <td><button (click)="updateFavorite(cocktail.strDrink)">Fave It!</button></td>
                     </tr>
 
                 </ng-container>

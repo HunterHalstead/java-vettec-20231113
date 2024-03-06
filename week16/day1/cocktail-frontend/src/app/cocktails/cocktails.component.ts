@@ -4,6 +4,7 @@ import { Cocktail } from '../models/cocktail';
 import { CommonModule } from '@angular/common';
 import { CocktailComponent } from "../cocktail/cocktail.component";
 import { FormsModule } from '@angular/forms';
+import { DataTransferService } from '../services/data-transfer.service';
 
 @Component({
     selector: 'app-cocktails',
@@ -25,7 +26,8 @@ export class CocktailsComponent {
 
     // this constructor injects our backend service
     // to be used throughout this component
-    constructor(private backend: BackendService) {
+    constructor(private backend: BackendService,
+                private dt: DataTransferService) {
 
         this.backend.cocktailsByLetter.subscribe(data => {
             this.cocktails = data;
@@ -59,6 +61,11 @@ export class CocktailsComponent {
 
     updateLetter() {
         this.backend.getAllCocktailsByLetter(this.searchLetter);
+    }
+
+    // calling to our data-transfer service to update favorite
+    updateFavorite(favoriteDrink: string) {
+        this.dt.updateFavoriteDrink(favoriteDrink);
     }
 
 }

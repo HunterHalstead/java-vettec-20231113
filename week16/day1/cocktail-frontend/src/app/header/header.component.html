@@ -1,3 +1,6 @@
 <header>
+    <aside *ngIf="favoriteDrink !== ''">Favorite Drink:<br />
+        <span>{{ favoriteDrink }} <button (click)="deleteFavorite()">X</button></span></aside>
+
     PERFECT POUR
 </header>
