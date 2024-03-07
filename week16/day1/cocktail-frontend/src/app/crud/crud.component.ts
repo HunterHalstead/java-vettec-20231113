@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-crud',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './crud.component.html',
   styleUrl: './crud.component.css'
 })
@@ -12,14 +14,8 @@ export class CrudComponent {
 
   baseUrl: string = 'https://reqres.in/api/users/';
 
-  constructor(private http: HttpClient) {
-    this.getUser('2');
-
-    this.createUser({
-      'name': 'Tester McGee',
-      'job': 'Testing'
-    });
-
+  constructor(private http: HttpClient, private fb: FormBuilder) {
+    
     this.updateUser('5', {
       'name': 'Junior Tester',
       'job': 'Testing Apprentice'
@@ -28,13 +24,58 @@ export class CrudComponent {
     this.deleteUser('5');
   }
 
+  // creates a form group
+  // takes in an object containing one field per property
+  // property array params: initial value, validators (1 or more)
+  getFormGroup = this.fb.group({
+    getId: ['', Validators.required]
+  });
+
+  // getter method for getId property
+  get getId() {
+    return this.getFormGroup.get('getId');
+  }
+
+  // a form group for our POST request
+  postFormGroup = this.fb.group({
+    postName: ['', Validators.compose([Validators.required,
+                                       Validators.minLength(5),
+                                       Validators.maxLength(20)])],
+    postJob: ['', Validators.compose([Validators.required,
+                                       Validators.minLength(10),
+                                       Validators.maxLength(25)])],                                                                
+  });
+
+  get postName() {
+    return this.postFormGroup.get('postName');
+  }
+
+  get postJob() {
+    return this.postFormGroup.get('postJob');
+  }
+
+
+
+
+
+
+
+
+  user = {
+    id: 123,
+    avatar: 'https://reqres.in/img/faces/2-image.jpg',
+    email: 'abc@123.com',
+    first_name: 'Tester',
+    last_name: 'McGee'
+  };
+
   // getting a single user based on ID
   // including error handling
   getUser(id: string) {
     this.http.get<any>(this.baseUrl + id, { observe: 'response' })
              .subscribe({
                 // for successful responses (must use "next")
-                next: data => console.log(data),
+                next: data => this.user = data.body.data,
                 // for error responses (must use "error")
                 error: err => console.log(err),
                 // to execute upon completed subscription (must use "complete")
@@ -42,12 +83,20 @@ export class CrudComponent {
              });
   }
 
+
+  postUser = {
+    id: 123,
+    name: 'Tester McGee 2',
+    job: 'Junior Tester',
+    createdAt: 'Yesterday'
+  }
+
   // creating a single user
   // POST request takes three params: URL, body, options
   createUser(user: {}) {
     this.http.post<any>(this.baseUrl, user, { observe: 'response'})
              .subscribe({
-                next: data => console.log(data),
+                next: data => this.postUser = data.body,
                 error: err => console.log(err),
                 complete: () => console.log('POST request complete!')
    });

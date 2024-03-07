@@ -1,1 +1,58 @@
-<p>crud works!</p>
+<h2>REACTIVE CRUD FORMS</h2>
+
+<!-- this form is attached to our getFormGroup -->
+<form [formGroup]="getFormGroup">
+    <h4>Get A Single User</h4>
+    <label for="getId">
+        Enter User ID
+        <span *ngIf="getId?.invalid && (getId?.touched || getId?.dirty)">*required</span>
+    </label>
+    <input id="getId" formControlName="getId" type="text">
+    <!-- button is disabled if ANY form field doesn't meet ALL validators -->
+    <button [disabled]="getFormGroup.invalid"
+            (click)="getUser(getId?.value!)">SUBMIT</button>
+
+    <p>
+        {{ user.id }}<br>
+        {{ user.first_name }}<br>
+        {{ user.last_name }}<br>
+        {{ user.email }}<br>
+        {{ user.avatar }}<br>
+    </p>
+
+</form>
+
+<form [formGroup]="postFormGroup">
+
+    <h4>Create A Single User</h4>
+
+    <label for="postName">
+        Enter User Name
+        <span *ngIf="postName?.invalid && (postName?.touched || postName?.dirty)">
+            <span *ngIf="postName!.errors?.['required']">*required</span>
+            <span *ngIf="postName!.errors?.['minlength']">*5-character minimum</span>
+            <span *ngIf="postName!.errors?.['maxlength']">*20-character maximum</span>
+        </span>
+    </label>
+    <input formControlName="postName" id="postName" type="text">
+
+    <label for="postJob">Enter User Job
+        <span *ngIf="postJob?.invalid && (postJob?.touched || postJob?.dirty)">
+            <span *ngIf="postJob!.errors?.['required']">*required</span>
+            <span *ngIf="postJob!.errors?.['minlength']">*10-character minimum</span>
+            <span *ngIf="postJob!.errors?.['maxlength']">*25-character maximum</span>
+        </span>
+    </label>
+    <input formControlName="postJob" id="postJob" type="text">
+
+    <button [disabled]="postFormGroup.invalid"
+            (click)="createUser({ name: postName?.value, job: postJob?.value })">SUBMIT</button>
+
+    <p>
+        {{ postUser.id }}<br>
+        {{ postUser.name }}<br>
+        {{ postUser.job }}<br>
+        {{ postUser.createdAt }}
+    </p>
+
+</form>
