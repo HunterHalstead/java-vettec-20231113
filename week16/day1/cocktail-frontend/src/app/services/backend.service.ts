@@ -2,12 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Cocktail } from '../models/cocktail';
+import { environment } from '../../environments/environment';
 
 // this decorator allows this to be dependency-injected into other components as needed
 @Injectable({
   providedIn: 'root'
 })
 export class BackendService {
+
+  baseURL = environment.apiURL;
 
   // where we store raw cocktails from the DB
   cocktailsByLetterRaw: Cocktail[] = [];
@@ -29,7 +32,7 @@ export class BackendService {
   // getting all cocktails starting with a certain letter
   getAllCocktailsByLetter(letter: string) {
     // takes in a URL and an observable type
-    this.http.get<any>('https://www.thecocktaildb.com/api/json/v1/1/search.php?f=' + letter, { observe: 'response' })
+    this.http.get<any>(this.baseURL + 'search.php?f=' + letter, { observe: 'response' })
              .subscribe(data => {
 
               // cleaning out the raw array
@@ -58,7 +61,7 @@ export class BackendService {
   // getting a single cocktail via id
   getCocktailById(idDrink: string) {
     
-    this.http.get<any>('https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + idDrink, { observe: 'response' })
+    this.http.get<any>(this.baseURL + 'lookup.php?i=' + idDrink, { observe: 'response' })
              .subscribe(data => {
 
               this.detailSubject.next(new Cocktail(data.body.drinks[0].idDrink,

@@ -40,3 +40,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# to remove the env files from your GitHub pushes
+# uncomment the second line below
+
+# Environments
+# /src/environments
