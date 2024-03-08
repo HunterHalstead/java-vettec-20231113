@@ -1,1 +1,32 @@
-<p>home works!</p>
+<h2>WELCOME TO PERFECT POUR!</h2>
+
+<h4>Some Work With Angular Pipes...</h4>
+
+<h5>Currency Pipe</h5>
+<ul>
+    <li *ngFor="let num of nums">{{ num | currency: 'CAD' }}</li>
+</ul>
+
+<h5>Date Pipe</h5>
+
+<ul>
+    <li>{{ date | date: 'long' }}</li>
+    <li>How the date is stored originally: {{ date }}</li>
+</ul>
+
+<h5>String Extender Pipe (custom)</h5>
+
+<ul>
+    <li *ngFor="let string of strings">{{ string | stringExtender : ' is' : ' great!!' : ' You know I\'m right.' }}</li>
+</ul>
+
+<h5>Spread Operators</h5>
+
+<ul>
+    <li *ngFor="let string of strings2">{{ string | stringExtender : ' is' : ' great!!' : ' You know I\'m right.' }}</li>
+</ul>
+
+<ul>
+    <li>{{ obj1.name }}</li>
+    <li>{{ obj2.name }}</li>
+</ul>
